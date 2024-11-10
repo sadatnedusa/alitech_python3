@@ -2,11 +2,12 @@
 
 - Here's a simple project structure for this project:
 
+```
 vlc-playlist-generator
 ├── README.md
 ├── vlc_playlist_generator.py
 └── .gitignore
-
+```
 ---
 ## 2. Problem Statement
 
