@@ -90,7 +90,7 @@ This script recursively scans the given directory and generates a VLC-compatible
 ### Example
 - Assume the directory structure is as follows:
 
-
+```
 media/
 ├── folder1/
 │   ├── video1.mp4
@@ -100,7 +100,7 @@ media/
 └── folder3/
     └── subfolder/
         └── video4.mp4
-
+```
 - After running the script, .xspf files will be generated in folder1, folder2, and folder3/subfolder.
 
 
