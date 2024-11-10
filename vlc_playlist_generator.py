@@ -2,7 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 from urllib.parse import quote
 
-def create_vlc_playlist(directory_path, playlist_name="playlist.xspf"):
+def create_vlc_playlist(directory_path):
     # Traverse directory and subdirectories
     for root, _, files in os.walk(directory_path):
         # Filter .mp4 files in the current directory, skip hidden files
@@ -11,6 +11,10 @@ def create_vlc_playlist(directory_path, playlist_name="playlist.xspf"):
         if not mp4_files:
             # Skip if there are no .mp4 files in the current directory
             continue
+
+        # Set playlist name based on the current subdirectory name
+        subdirectory_name = os.path.basename(root) or "root"  # Use 'root' if in the top-level directory
+        playlist_name = f"{subdirectory_name}.xspf"
         
         # Initialize XML structure for the VLC playlist
         playlist = ET.Element("playlist", attrib={"xmlns": "http://xspf.org/ns/0/", "version": "1"})
