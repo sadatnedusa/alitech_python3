@@ -48,7 +48,8 @@ Creating a VLC playlist manually can be time-consuming when there are many `.mp4
 
 ## Solution
 
-This script recursively scans the given directory and generates a VLC-compatible `.xspf` playlist in each subdirectory containing `.mp4` files. The playlist is created with properly encoded file paths to ensure VLC can read them, even with special characters.
+- This script recursively scans the given directory and generates a VLC-compatible `.xspf` playlist in each subdirectory containing `.mp4` files. 
+- The playlist is created with properly encoded file paths to ensure VLC can read them, even with special characters.
 
 ## Features
 
@@ -72,12 +73,12 @@ This script recursively scans the given directory and generates a VLC-compatible
 3. Run the function with the specified directory path.
 
 ## How the Program Works
-```
+
 1. **Input**: The program takes a directory path as input. Replace `directory_path` with the path to the top-level directory containing `.mp4` files.
 2. **Directory Scanning**: It scans all folders and subfolders for `.mp4` files.
 3. **Playlist Generation**: For each folder with `.mp4` files, it generates an `.xspf` file with properly formatted paths.
 4. **Output**: Each `.xspf` playlist file is saved in its respective subdirectory.
-```
+
 ## Usage
 
 1. Clone the repository:
