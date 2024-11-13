@@ -11,7 +11,8 @@ vlc-playlist-generator
 ---
 ## 2. Problem Statement
 
-Creating individual VLC playlists across multiple subdirectories for `.mp4` files can be tedious and time-consuming. This project aims to automate the playlist creation process, generating `.xspf` files for each subdirectory containing `.mp4` files, complete with properly formatted paths for compatibility with VLC.
+- Creating individual VLC playlists across multiple subdirectories for `.mp4` files can be tedious and time-consuming. 
+- This project aims to automate the playlist creation process, generating `.xspf` files for each subdirectory containing `.mp4` files, complete with properly formatted paths for compatibility with VLC.
 
 ### 3. Pseudocode
 
@@ -29,13 +30,14 @@ Creating individual VLC playlists across multiple subdirectories for `.mp4` file
 3. Run the function with a specified directory path.
 ```
 ---
-## 4. How the Program Works
-Directory and Subdirectory Scanning: The program scans the specified directory and all its subdirectories.
-File Filtering: Only .mp4 files are considered, and hidden files are skipped.
-Playlist Creation:
-A VLC-compatible playlist (.xspf file) is created for each subdirectory containing .mp4 files.
-Each file path is URL-encoded to ensure VLC compatibility.
-Playlist Output: The .xspf file is saved in the same folder as the video files, making it convenient for VLC playback.
+## 4. How the program works
+
+- Directory and Subdirectory Scanning: The program scans the specified directory and all its subdirectories.
+- File Filtering: Only .mp4 files are considered, and hidden files are skipped.
+- Playlist Creation:
+-- A VLC-compatible playlist (.xspf file) is created for each subdirectory containing .mp4 files.
+-- Each file path is URL-encoded to ensure VLC compatibility.
+-- **Playlist Output**: The .xspf file is saved in the same folder as the video files, making it convenient for VLC playback.
 
 ---
 # VLC Playlist Generator
