@@ -90,19 +90,19 @@
 
    - Step-by-step explanation of code in **layman's terms**:
       
-      ### Code Overview:
+      #### Code Overview:
       ```python
       squares = (x * x for x in range(5))
       for square in squares:
           print(square)
       ```
       
-      ### What the Code Does:
-      1. **Creates a "generator" that calculates squares of numbers in a range (`squares`)**.
-      2. **Iterates over the generator using a `for` loop**.
-      3. **Prints each squared value**.
+      - **What the Code Does:**
+        - 1. **Creates a "generator" that calculates squares of numbers in a range (`squares`)**.
+        - 2. **Iterates over the generator using a `for` loop**.
+        - 3. **Prints each squared value**.
       
-      ### Step-by-Step Breakdown:
+      #### Step-by-Step Breakdown:
       #### **Step 1: `range(5)`**
       - `range(5)` generates numbers from 0 to 4 (5 is excluded). 
         - Output: `0, 1, 2, 3, 4`.
@@ -133,12 +133,12 @@
       - Each `square` is printed to the console.
 
       
-      ### Key Concept: What is Lazy Evaluation?
+      #### Key Concept: What is Lazy Evaluation?
       - Instead of creating all squares at once (like in a list `[x * x for x in range(5)]`), the generator calculates one square at a time when the `for` loop asks for it.
       - This makes generators efficient for handling large datasets, as they don’t use unnecessary memory.
    
       
-      ### Final Output:
+      ##### Final Output:
       Here’s how the loop executes step by step:
       1. `squares` generator is created but doesn’t calculate anything yet.
       2. The `for` loop asks the generator for the first value:
