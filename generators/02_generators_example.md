@@ -88,75 +88,75 @@
    16
    ```
 
-   - Step-by-step explanation of code in **layman's terms**:
-      
-      #### Code Overview:
-      ```python
-      squares = (x * x for x in range(5))
-      for square in squares:
-          print(square)
-      ```
-      
-      - **What the Code Does:**
-        - 1. **Creates a "generator" that calculates squares of numbers in a range (`squares`)**.
-        - 2. **Iterates over the generator using a `for` loop**.
-        - 3. **Prints each squared value**.
-      
-      #### Step-by-Step Breakdown:
-      ##### **Step 1: `range(5)`**
-      - `range(5)` generates numbers from 0 to 4 (5 is excluded). 
-        - Output: `0, 1, 2, 3, 4`.
-      
-      ##### **Step 2: `(x * x for x in range(5))`**
-      - This is called a **generator expression**.
-      - **What it does**:
-        - For every number `x` in `range(5)`, it computes `x * x` (i.e., the square of `x`).
-        - The result is not computed all at once; instead, it calculates one square at a time when needed. This is called **lazy evaluation**.
-      - **Why use a generator?**
-        - Saves memory because it computes each value on demand rather than creating a large list in memory.
-      
-      - Example:
-        - When you ask the generator for a value, it gives:
-          - \( 0^2 = 0 \)
-          - \( 1^2 = 1 \)
-          - \( 2^2 = 4 \)
-          - \( 3^2 = 9 \)
-          - \( 4^2 = 16 \)
-      
-      ##### **Step 3: `for square in squares`**
-      - This loops through the generator.
-      - Each time the loop runs:
-        - The generator calculates the next square.
-        - The value of the square is stored in the variable `square`.
-      
-      ##### **Step 4: `print(square)`**
-      - Each `square` is printed to the console.
-
-      ###### Key Concept: What is Lazy Evaluation?
-      - Instead of creating all squares at once (like in a list `[x * x for x in range(5)]`), the generator calculates one square at a time when the `for` loop asks for it.
-      - This makes generators efficient for handling large datasets, as they don’t use unnecessary memory.
+- Step-by-step explanation of code in **layman's terms**:
    
-      ###### Final Output:
-      Here’s how the loop executes step by step:
-      1. `squares` generator is created but doesn’t calculate anything yet.
-      2. The `for` loop asks the generator for the first value:
-         - \( x = 0 \), calculates \( 0^2 = 0 \), prints `0`.
-      3. Loop asks for the next value:
-         - \( x = 1 \), calculates \( 1^2 = 1 \), prints `1`.
-      4. Repeats for \( x = 2, 3, 4 \), printing `4`, `9`, and `16`.
-      
-      **Output:**
-      ```
-      0
-      1
-      4
-      9
-      16
-      ```
+   #### Code Overview:
+   ```python
+   squares = (x * x for x in range(5))
+   for square in squares:
+       print(square)
+   ```
+   
+   - **What the Code Does:**
+     - 1. **Creates a "generator" that calculates squares of numbers in a range (`squares`)**.
+     - 2. **Iterates over the generator using a `for` loop**.
+     - 3. **Prints each squared value**.
+   
+   #### Step-by-Step Breakdown:
+   ##### **Step 1: `range(5)`**
+   - `range(5)` generates numbers from 0 to 4 (5 is excluded). 
+     - Output: `0, 1, 2, 3, 4`.
+   
+   ##### **Step 2: `(x * x for x in range(5))`**
+   - This is called a **generator expression**.
+   - **What it does**:
+     - For every number `x` in `range(5)`, it computes `x * x` (i.e., the square of `x`).
+     - The result is not computed all at once; instead, it calculates one square at a time when needed. This is called **lazy evaluation**.
+   - **Why use a generator?**
+     - Saves memory because it computes each value on demand rather than creating a large list in memory.
+   
+   - Example:
+     - When you ask the generator for a value, it gives:
+       - \( 0^2 = 0 \)
+       - \( 1^2 = 1 \)
+       - \( 2^2 = 4 \)
+       - \( 3^2 = 9 \)
+       - \( 4^2 = 16 \)
+   
+   ##### **Step 3: `for square in squares`**
+   - This loops through the generator.
+   - Each time the loop runs:
+     - The generator calculates the next square.
+     - The value of the square is stored in the variable `square`.
+   
+   ##### **Step 4: `print(square)`**
+   - Each `square` is printed to the console.
 
-      ##### Why is This Useful?
-      - **Efficiency**: Generators are memory-efficient because they calculate values one by one instead of storing them all at once.
-      - **Example**: If you needed squares of a billion numbers, a generator would calculate them one by one, whereas a list would consume a huge amount of memory.
+   ###### Key Concept: What is Lazy Evaluation?
+   - Instead of creating all squares at once (like in a list `[x * x for x in range(5)]`), the generator calculates one square at a time when the `for` loop asks for it.
+   - This makes generators efficient for handling large datasets, as they don’t use unnecessary memory.
+
+   ###### Final Output:
+   Here’s how the loop executes step by step:
+   1. `squares` generator is created but doesn’t calculate anything yet.
+   2. The `for` loop asks the generator for the first value:
+      - \( x = 0 \), calculates \( 0^2 = 0 \), prints `0`.
+   3. Loop asks for the next value:
+      - \( x = 1 \), calculates \( 1^2 = 1 \), prints `1`.
+   4. Repeats for \( x = 2, 3, 4 \), printing `4`, `9`, and `16`.
+   
+   **Output:**
+   ```
+   0
+   1
+   4
+   9
+   16
+   ```
+
+   ##### Why is This Useful?
+   - **Efficiency**: Generators are memory-efficient because they calculate values one by one instead of storing them all at once.
+   - **Example**: If you needed squares of a billion numbers, a generator would calculate them one by one, whereas a list would consume a huge amount of memory.
 
 
 5. **File Reading Generator**
