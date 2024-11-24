@@ -132,12 +132,10 @@
       #### **Step 4: `print(square)`**
       - Each `square` is printed to the console.
 
-      
-      #### Key Concept: What is Lazy Evaluation?
+      ##### Key Concept: What is Lazy Evaluation?
       - Instead of creating all squares at once (like in a list `[x * x for x in range(5)]`), the generator calculates one square at a time when the `for` loop asks for it.
       - This makes generators efficient for handling large datasets, as they don’t use unnecessary memory.
    
-      
       ##### Final Output:
       Here’s how the loop executes step by step:
       1. `squares` generator is created but doesn’t calculate anything yet.
@@ -156,8 +154,7 @@
       16
       ```
 
-
-      ### Why is This Useful?
+      ##### Why is This Useful?
       - **Efficiency**: Generators are memory-efficient because they calculate values one by one instead of storing them all at once.
       - **Example**: If you needed squares of a billion numbers, a generator would calculate them one by one, whereas a list would consume a huge amount of memory.
 
