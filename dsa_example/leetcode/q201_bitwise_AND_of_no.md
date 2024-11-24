@@ -95,6 +95,83 @@ class Solution:
         return -1 << (left ^ right).bit_length() & left
 ```
 
+### Why it is an efficient solution for finding the bitwise AND of numbers in the range `[left, right]`.
+
+
+### **Code Breakdown**
+```python
+class Solution:
+    def rangeBitwiseAnd(self, left: int, right: int) -> int:
+        return -1 << (left ^ right).bit_length() & left
+```
+
+#### **Step-by-step Explanation**:
+1. **XOR Operation (`left ^ right`)**:
+   - The XOR (`^`) of `left` and `right` identifies the positions of bits where `left` and `right` differ.
+   - For example:
+     - `left = 5 (101)` and `right = 7 (111)`.
+     - `left ^ right = 2 (010)` (difference in the 2nd position from the right).
+   - The positions of differing bits tell us how far apart the numbers are.
+
+2. **Find the Most Significant Differing Bit (`.bit_length()`)**:
+   - The `bit_length()` method gives the position (1-based) of the most significant bit in the XOR result.
+   - This indicates the highest bit position where `left` and `right` differ.
+   - Example:
+     - For `left = 5` and `right = 7`, `left ^ right = 2 (010)`.
+     - `.bit_length()` is `2` (2nd bit).
+
+3. **Create a Mask to Zero Out Differing Bits (`-1 << ...`)**:
+   - `-1` in binary is represented as all `1`s.
+   - Left-shifting `-1` by the number of differing bits zeros out all bits below the most significant differing bit.
+   - Example:
+     - Left-shifting `-1` by `2`: `-1 << 2 = 11111100 (binary)`.
+     - This mask retains only the common prefix of `left` and `right`.
+
+4. **Apply the Mask (`& left`)**:
+   - The bitwise AND (`&`) operation between the mask and `left` extracts only the common bits in the positions above the most significant differing bit.
+   - This gives the result for the bitwise AND of all numbers in the range `[left, right]`.
+
+### **Efficiency**
+This method is extremely efficient for several reasons:
+
+1. **Avoids Iteration**:
+   - The naive solution would iterate through all numbers between `left` and `right`, performing a bitwise AND for each pair. This is computationally expensive for large ranges.
+   - Instead, this approach computes the result in \(O(1)\) time complexity, relying on bit manipulations.
+
+2. **Bitwise Operations Are Fast**:
+   - XOR, bit-length calculation, left-shifting, and AND operations are low-level bitwise operations, which are very fast compared to iterative or arithmetic operations.
+
+3. **Focuses Only on Differing Bits**:
+   - By identifying the most significant differing bit, the solution effectively zeros out all bits that vary within the range, which is the essence of the problem.
+
+
+### **Why is it the Most Efficient?**
+- **Time Complexity**: O(1), because all operations (`^`, `.bit_length()`, `<<`, `&`) run in constant time.
+- **Space Complexity**: O(1), as no extra memory is used.
+- This is more efficient than approaches involving loops, which would take \(O(n)\) time for a range of size (n).
+
+
+### **Examples**
+#### Example 1:
+Input: `left = 5`, `right = 7`
+- `left ^ right = 2 (010)`.
+- `.bit_length() = 2`.
+- `-1 << 2 = 11111100`.
+- `11111100 & 5 = 4`.
+
+Output: `4`.
+
+#### Example 2:
+Input: `left = 1`, `right = 2147483647`
+- `left ^ right = 2147483646`.
+- `.bit_length() = 31`.
+- `-1 << 31 = 10000000000000000000000000000000`.
+- `10000000000000000000000000000000 & 1 = 0`.
+
+Output: `0`.
+
+This approach is optimal for large ranges due to its constant-time complexity and reliance on efficient bitwise operations.
+
 ---
 ## Solution 4
 
