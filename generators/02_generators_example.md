@@ -1,7 +1,7 @@
-## Let’s start with beginner-friendly examples and build up to more advanced uses of generators.
-## Each example will demonstrate different generator techniques, advancing gradually.
+### Start with beginner-friendly examples and build up to more advanced uses of generators.
+#### Each example will demonstrate different generator techniques, advancing gradually.
 
-### Beginner Level
+#### Beginner Level
 
 1. **Basic Generator Function**
    - This example introduces a simple generator that yields values one by one.
