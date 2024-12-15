@@ -53,3 +53,41 @@ if __name__ == "__main__":
 
 ### Example Usage:
 - In this example, we perform multiple `union` operations to connect different elements, and then check if certain pairs of elements are connected using the `connected` method.
+
+
+---
+
+In a **quick-union** data structure, each element points to another element in the `id[]` array. The root of an element is the one whose index points to itself.
+To find the roots of two elements, we need to trace their indices recursively until we find the element that points to itself.
+
+Given the `id[]` array for 10 elements as:
+
+| i  | 0  | 1  | 2  | 3  | 4  | 5  | 6  | 7  | 8  | 9  |
+|----|----|----|----|----|----|----|----|----|----|----|
+| id[i] | 0  | 9  | 6  | 5  | 4  | 2  | 6  | 1  | 0  | 5  |
+
+Let's trace the roots of elements **3** and **7**:
+
+### Root of 3:
+1. Start at index 3: `id[3] = 5`
+2. Now, follow the pointer at index 5: `id[5] = 2`
+3. Follow the pointer at index 2: `id[2] = 6`
+4. Follow the pointer at index 6: `id[6] = 6` (6 is the root, as `id[6]` points to itself)
+
+So, the root of element 3 is **6**.
+
+### Root of 7:
+1. Start at index 7: `id[7] = 1`
+2. Now, follow the pointer at index 1: `id[1] = 9`
+3. Follow the pointer at index 9: `id[9] = 5`
+4. Follow the pointer at index 5: `id[5] = 2`
+5. Follow the pointer at index 2: `id[2] = 6`
+6. Follow the pointer at index 6: `id[6] = 6` (6 is the root, as `id[6]` points to itself)
+
+So, the root of element 7 is also **6**.
+
+### Answer:
+The roots of elements **3** and **7** are **6** and **6**, respectively.
+
+Thus, the correct answer is:
+**6 and 6**.
